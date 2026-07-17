@@ -6,7 +6,7 @@ export default class Alert {
   }
 
   async init() {
-    this.alerts = await loadData('../json/alerts.json');
+    this.alerts = await loadData('/json/alerts.json');
 
     if (!this.alerts || this.alerts.length === 0) {
       return;
