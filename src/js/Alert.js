@@ -6,13 +6,17 @@ export default class Alert {
   }
 
   async init() {
-    this.alerts = await loadData('/json/alerts.json');
+    try {
+      this.alerts = await loadData('/json/alerts.json');
 
-    if (!this.alerts || this.alerts.length === 0) {
-      return;
+      if (!this.alerts || this.alerts.length === 0) {
+        return;
+      }
+
+      this.renderAlerts();
+    } catch (error) {
+      console.error('Unable to load alerts:', error);
     }
-
-    this.renderAlerts();
   }
 
   renderAlerts() {
