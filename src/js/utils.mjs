@@ -29,3 +29,10 @@ export async function loadData(path) {
   const response = await fetch(path);
   return await response.json();
 }
+
+// get a parameter from the URL query string
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(param);
+}
